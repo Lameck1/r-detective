@@ -53,6 +53,22 @@ class GetOffence
     end
   end
 
+  def detect_trailing_spaces
+    msg = 'Trailing whitespace detected.'
+    regex = /\s{1,}\n/
+    @detective.file_lines.each_with_index do |line, index|
+      @offences << line_position(line, index, regex) + msg.to_s if line.match?(regex)
+    end
+  end
+
+  def detect_double_spaces
+    msg = 'Double spaces detected.'
+    regex = /.+[\w]\s\s.+/
+    @detective.file_lines.each_with_index do |line, index|
+      @offences << line_position(line, index, regex) + msg.to_s if line.match?(regex)
+    end
+  end
+
   def report_offence(offence)
     @offences << offence
   end
