@@ -11,5 +11,13 @@ class GetOffence
     @camel_case = /^[A-Z][A-Za-z\d]+$/
     @good_comment = /\A#+ [^#\s=:+-]/.freeze
     @leading_space = /\A */
-  end  
+  end
+
+  def report_offence(offence)
+    @offences << offence
+  end
+
+  def line_position(line, index, regex)
+    "line:#{index + 1}:#{line.index(regex)}: "
+  end
 end
