@@ -104,7 +104,7 @@ R-detective is a beginner code analysis tool developed as Part of Microverse Rub
     # not acceptable
 
     ---------------------
-                        <- empty laeding line
+                        <- empty leading line
     require 'colorize'
     ```
 
@@ -153,7 +153,7 @@ R-detective is a beginner code analysis tool developed as Part of Microverse Rub
 * Lastly run ```bin/main.rb test_files/code_smells.rb``` to check for errors the file ```code_smells.rb``
 
 ## NOTICE: 
-This directory ![Test Files](./test_files/), have been excluded from rubocop because it contains files only for testing the r-detective
+This directory [Test Files](./test_files/), have been excluded from rubocop because it contains files only for testing the r-detective
 
 ## Running Test
 
