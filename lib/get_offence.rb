@@ -90,5 +90,4 @@ class GetOffence
   def line_position(line, index, regex)
     "line:#{index + 1}:#{line.index(regex)}: "
   end
-
 end
