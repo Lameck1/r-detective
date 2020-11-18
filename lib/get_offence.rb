@@ -26,6 +26,16 @@ class GetOffence
     end
   end
 
+  def detect_leading_empty_lines
+    msg = 'Leading empty lines detected at beginning of file.'
+    @offences << msg.to_s if @detective.file_lines[0].match?(/^(?:[\t ]*(?:\r?\n|\r))+/)
+  end
+
+  def detect_source_file_too_long
+    msg = 'Source file too long, total lines should be < 100.'
+    @offences << msg.to_s if @detective.file_lines_count > 100
+  end
+
   def report_offence(offence)
     @offences << offence
   end
