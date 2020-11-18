@@ -70,6 +70,19 @@ class GetOffence
     end
   end
 
+  def investigate
+    detect_bad_comment_syntax
+    detect_bad_file_name
+    detect_proc_new_usage
+    detect_trailing_empty_lines
+    detect_source_file_too_long
+    detect_leading_empty_lines
+    detect_double_spaces
+    detect_trailing_spaces
+  end
+
+  private
+
   def report_offence(offence)
     @offences << offence
   end
@@ -78,18 +91,4 @@ class GetOffence
     "line:#{index + 1}:#{line.index(regex)}: "
   end
 
-  def investigate
-    if @detective.file_lines.empty?
-      puts "File under investigation `#{@detective.path}` is empty".colorize(:green)
-    else
-      detect_bad_comment_syntax
-      detect_bad_file_name
-      detect_proc_new_usage
-      detect_trailing_empty_lines
-      detect_source_file_too_long
-      detect_leading_empty_lines
-      detect_double_spaces
-      detect_trailing_spaces
-    end
-  end
 end

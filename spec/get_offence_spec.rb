@@ -34,7 +34,7 @@ describe GetOffence do
   end
 
   describe '#detect_source_file_too_long' do
-    it 'returns source file too loong error' do
+    it 'returns source file too long error' do
       too_long_detective.detect_source_file_too_long
       expect(too_long_detective.offences[0]).to eq('Source file too long, total lines should be < 100.')
     end
