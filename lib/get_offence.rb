@@ -13,6 +13,19 @@ class GetOffence
     @leading_space = /\A */
   end
 
+  def detect_bad_file_name
+    msg = 'Bad file name: Use snake_case for naming files.'
+    @offences << msg.to_s unless @detective.path.match?(@snake_case)
+  end
+
+  def detect_proc_new_usage
+    msg = 'Use `proc` instead of `Proc.new`.'
+    regex = /Proc.new/
+    @detective.file_lines.each_with_index do |line, index|
+      @offences << line_position(line, index, regex) + msg.to_s if line.match?(regex)
+    end
+  end
+
   def report_offence(offence)
     @offences << offence
   end
