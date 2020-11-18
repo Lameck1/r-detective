@@ -15,7 +15,8 @@ class GetOffence
 
   def detect_bad_file_name
     msg = 'Bad file name: Use snake_case for naming files.'
-    @offences << msg.to_s unless @detective.path.match?(@snake_case)
+    file_name = @detective.path.split('/')[-1]
+    @offences << msg.to_s unless file_name.match?(@snake_case)
   end
 
   def detect_proc_new_usage

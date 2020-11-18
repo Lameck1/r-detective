@@ -1,13 +1,13 @@
 
 class  Addition
-    def initialize(*_args)
-      @add = Proc.new { |args| args.reduce(:+) }
-    end
-  
-    def add(*args)
-      @add.call(args)  
-    end
+  def initialize(*_args)
+    @add = Proc.new { |args| args.reduce(:+) }
   end
-  #bad commment
-  
+
+  def add(*args)
+    @add.call(args)  
+  end
+end
+#bad commment
+
   

@@ -1,9 +1,9 @@
 require_relative '../lib/get_offence.rb'
 
 describe GetOffence do
-  let(:detective) { GetOffence.new('code_smells.rb') }
-  let(:bad_name_detective) { GetOffence.new('BadName.rb') }
-  let(:too_long_detective) { GetOffence.new('too_long.rb') }
+  let(:detective) { GetOffence.new('./test_files/code_smells.rb') }
+  let(:bad_name_detective) { GetOffence.new('./test_files/BadName.rb') }
+  let(:too_long_detective) { GetOffence.new('./test_files/too_long.rb') }
 
   describe '#detect_bad_comment_syntax' do
     it 'returns a bad comment syntax error at line:11 col:0' do
