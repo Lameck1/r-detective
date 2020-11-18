@@ -11,6 +11,8 @@ jobs:
       - uses: actions/setup-ruby@v1
         with:
           ruby-version: 2.6.x
+      - name: Setup Bundler
+        run:  gem install bundler:2.1.4
       - name: Setup Rubocop
         run: |
           gem install --no-document rubocop:'~>0.81.0' # https://docs.rubocop.org/en/stable/installation/
