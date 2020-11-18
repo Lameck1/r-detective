@@ -36,6 +36,23 @@ class GetOffence
     @offences << msg.to_s if @detective.file_lines_count > 100
   end
 
+  def detect_trailing_empty_lines
+    msg = 'Trailings empty lines at EOF, only one empty line expected at end of file.'
+    if !@detective.file_lines.last.match?(/\S/) &&
+       !@detective.file_lines[-1].gsub(/(["'])(?:(?=(\\?))\2.)*?\1/, '').match?(/\bend\b/)
+      @offences << msg.to_s
+    end
+  end
+
+  def detect_bad_comment_syntax
+    msg = 'Bad comment syntax.'
+    @detective.file_lines.each_with_index do |line, index|
+      if line[0] == '#' and !line.match?(@good_comment)
+        @offences << line_position(line, index, /\A#+[^#\s=:+-]/) + msg.to_s
+      end
+    end
+  end
+
   def report_offence(offence)
     @offences << offence
   end
