@@ -189,9 +189,6 @@ Credits go to the following
   - [Ruby Guides:](https://www.rubyguides.com/2015/06/ruby-regex/)
   - [Ruby Docs:](https://docs.ruby-lang.org/en/2.5.0/Regexp.html)
 
-Other
-  - Fontawesome
-
 ## Show your support
 
 Give a ⭐️ if you like this project!
